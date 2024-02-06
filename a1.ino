@@ -1,6 +1,7 @@
 // 12.01.2015 (c) P.Sieg simple Apple 1 emulator based on arduino_6502 c:\Users\Matteo\Downloads\a1logo.h
 // project from miker00lz
 // Released under GNU GPL V2
+//Led Matrix Logo by Toolkitman
 
 #include "Arduino_LED_Matrix.h"
 
@@ -39,8 +40,9 @@ extern "C" {
   }
 }
 
-void setup () {
-  Serial.begin(9600);
+void setup ()
+{
+  Serial.begin (9600);
   Serial.println ();
   reset6502();
   matrix.begin();
@@ -57,6 +59,5 @@ const uint32_t a1logo [] =
 void loop () {
   exec6502(100); //if timing is enabled, this value is in 6502 clock ticks. otherwise, simply instruction count.
   matrix.loadFrame(a1logo);
-  delay(500);
 }
 
